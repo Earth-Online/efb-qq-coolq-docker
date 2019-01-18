@@ -1,0 +1,27 @@
+version: '3'
+services:
+  bot:
+    build: .
+    image: qqbot 
+    depends_on:
+      - cqhttp
+       
+  cqhttp:
+    image: "richardchien/cqhttp"
+    environment:
+                - COOLQ_PORT=5700 
+                - VNC_PASSWD=MAX8char
+                - COOLQ_ACCOUNT=123456
+                - CQHTTP_POST_URL=http://bot:8000 
+                - CQHTTP_SERVE_DATA_FILES=yes
+                - CQHTTP_ACCESS_TOKEN=ac0f790e1fb74ebcaf45da77a6f9de47
+                - CQHTTP_POST_MESSAGE_FORMAT=array 
+                - FORCE_ENV=true
+    ports:
+      -  "9801:9000" 
+    volumes:
+           - coolq-db:/home/user/coolq
+                       
+volumes:
+  coolq-db:
+
