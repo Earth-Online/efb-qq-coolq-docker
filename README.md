@@ -15,5 +15,5 @@ admins:
 
 执行 `docker-compose up -d`
 
-打开 `ip:9001` 登陆novnc后完成coolq登陆操作
+打开 `ip:9801` 登陆novnc后完成coolq登陆操作
 
