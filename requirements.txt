@@ -1,3 +1,4 @@
 ehforwarderbot
 efb-telegram-master
-efb-qq-slave
+-e git+https://github.com/Earth-Online/efb-qq-slave#egg=efb-qq-slave
+efb-wechat-slave
