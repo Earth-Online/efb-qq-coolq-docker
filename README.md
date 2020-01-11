@@ -17,3 +17,6 @@ admins:
 
 打开 `ip:9801` 登陆novnc后完成coolq登陆操作
 
+### 更新
+重建镜像
+`docker-compose build --no-cache`
