@@ -7,4 +7,4 @@ COPY .   /opt/app
 ENV EFB_DATA_PATH  /opt/app/ehforward_config
 ENV PROFILE default
 VOLUME /opt/app/ehforward_config/profiles/${PROFILE}/blueset.telegram
-ENTRYPOINT ehforwarderbot -p ${PROFILE}
+ENTRYPOINT ehforwarderbot  -p ${PROFILE}
