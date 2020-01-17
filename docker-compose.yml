@@ -1,10 +1,11 @@
-version: '3'
+version: '2.1'
 services:
   bot:
     build: .
     image: qqbot 
     depends_on:
-      - cqhttp
+      cqhttp:
+            condition: service_healthy
        
   cqhttp:
     image: "richardchien/cqhttp"
@@ -18,9 +19,14 @@ services:
                 - CQHTTP_POST_MESSAGE_FORMAT=array 
                 - FORCE_ENV=true
     ports:
-      -  "9801:9000" 
+      -  "9000:9000" 
     volumes:
            - coolq-db:/home/user/coolq
+    healthcheck:
+        test: curl  -f http://localhost:$${COOLQ_PORT}/get_status?access_token=$${CQHTTP_ACCESS_TOKEN}
+        interval: 10s
+        timeout: 3s
+        retries: 100
                        
 volumes:
   coolq-db:
