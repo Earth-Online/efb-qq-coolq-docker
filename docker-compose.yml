@@ -3,6 +3,8 @@ services:
   bot:
     build: .
     image: qqbot 
+    volumes:
+          - bot-db:/opt/app/ehforward_config/profiles/default/blueset.telegram
     depends_on:
       cqhttp:
             condition: service_healthy
@@ -30,4 +32,7 @@ services:
                        
 volumes:
   coolq-db:
+     external: true
+  bot-db:
+     external: true
 
